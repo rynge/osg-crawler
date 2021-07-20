@@ -1,0 +1,28 @@
+#!/bin/bash
+
+TARGET=$1
+if [ "x$TARGET" = "x" ]; then
+    echo "Please specify a target"
+    exit 1
+fi
+
+SRC_DIR=$(pwd)
+TARGET_DIR=$HOME/crawlers/$TARGET
+
+# is there a dag running already?
+if [ -e $TARGET_DIR/crawler.dag.dagman.log ]; then
+    OLD_ID=$(cat $TARGET_DIR/crawler.dag.dagman.log | grep ^000 | head -n 1 | sed 's/\..*//' | sed 's/.* (//')
+    echo "Removing old dag with cluster id $OLD_ID"
+    condor_rm $OLD_ID
+    sleep 10s
+fi
+
+rm -rf $TARGET_DIR
+mkdir $TARGET_DIR
+cp dag/* $TARGET_DIR/
+cp settings/$TARGET/* $TARGET_DIR/
+
+cd $TARGET_DIR
+condor_submit_dag crawler.dag
+
+

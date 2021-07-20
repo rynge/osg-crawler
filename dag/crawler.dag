@@ -1,0 +1,6 @@
+
+JOB main job.sub
+SCRIPT PRE main prejob.sh
+SCRIPT POST main postjob.sh
+RETRY main 100000
+
