@@ -1,0 +1,28 @@
+universe     = vanilla
+
+requirements = $REQS
+rank         = DaemonStartTime
+
+#+SingularityImage = \"/cvmfs/singularity.opensciencegrid.org/ericmjonas/osg:nonconformity-orca\"
+
+executable   = job.sh
+arguments    =
+input        =
+output       = outputs/\$(Cluster).out
+error        = outputs/\$(Cluster).err
+log          = outputs/\$(Cluster).log
+
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+
+request_cpus = 1
+request_gpus = 0
+request_memory = 1 GB
+request_disk = 1 GB
+
+Notification = never
+
++ProjectName = \"TG-DDM160003\"
+
+queue 
+

@@ -16,5 +16,10 @@ env >${GLIDEIN_ResourceName}.env
 echo
 echo
 
+cat $_CONDOR_MACHINE_AD
+
+echo
+echo
+
 sleep 5m
 
