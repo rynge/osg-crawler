@@ -1,7 +1,9 @@
 universe     = vanilla
 
-requirements = $REQS
+requirements = Is_ITB_Site == True && $REQS
 rank         = DaemonStartTime
+
++ITB_Sites   = True
 
 +SingularityImage = \"/cvmfs/singularity.opensciencegrid.org/htc/tensorflow:2.15\"
 
