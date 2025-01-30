@@ -1,9 +1,9 @@
 universe     = vanilla
 
-requirements = $REQS
+requirements = (Arch == \"X86_64\" || Arch == \"aarch64\") && $REQS
 rank         = DaemonStartTime
 
-+SingularityImage = \"/cvmfs/singularity.opensciencegrid.org/htc/tensorflow:2.15\"
++SingularityImage = \"/cvmfs/singularity.opensciencegrid.org/htc/pytorch:2.3.1-cuda11.8\"
 
 executable   = job.sh
 arguments    =
@@ -12,17 +12,12 @@ output       = outputs/\$(Cluster).out
 error        = outputs/\$(Cluster).err
 log          = outputs/\$(Cluster).log
 
-should_transfer_files   = YES
-when_to_transfer_output = ON_EXIT
+transfer_input_files = test-pytorch.py
 
 request_cpus = 1
 request_gpus = 1
-request_memory = 1 GB
-request_disk = 1 GB
-
-Notification = never
-
-#+ProjectName = \"TG-DDM160003\"
+request_memory = 2 GB
+request_disk = 5 GB
 
 queue 
 

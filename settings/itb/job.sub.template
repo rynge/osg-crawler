@@ -1,7 +1,6 @@
 universe     = vanilla
 
-requirements = Is_ITB_Site == True && $REQS
-rank         = DaemonStartTime
+requirements = Is_ITB_Site == True && (Arch == \"X86_64\" || Arch == \"aarch64\") && $REQS
 
 +ITB_Sites   = True
 

@@ -1,7 +1,6 @@
 universe     = vanilla
 
-requirements = $REQS
-rank         = DaemonStartTime
+requirements = (Arch == \"X86_64\" || Arch == \"aarch64\") && $REQS
 
 #+SingularityImage = \"/cvmfs/singularity.opensciencegrid.org/ericmjonas/osg:nonconformity-orca\"
 
