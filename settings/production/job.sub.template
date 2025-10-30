@@ -23,5 +23,7 @@ Notification = never
 
 +ProjectName = \"TG-DDM160003\"
 
+periodic_remove = (time() - QDate) > (6 * 3600)
+
 queue 
 

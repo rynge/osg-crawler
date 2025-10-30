@@ -19,5 +19,7 @@ request_gpus = 1
 request_memory = 2 GB
 request_disk = 5 GB
 
+periodic_remove = (time() - QDate) > (6 * 3600)
+
 queue 
 
